@@ -12,16 +12,17 @@ from normalizer import Normalizer
 
 from utils import get_env_paramters
 
-from torch.utils.tensorboard import SummaryWriter
+# from torch.utils.tensorboard import SummaryWriter
 
 class DDPG_Agent:
     def __init__(self, args, env):
         self.args = args
         self.env = env
         self.env_params = get_env_paramters(env)
+        self.success_rate = []
         # tensorboard
-        if MPI.COMM_WORLD.Get_rank() == 0:
-            self.tb = SummaryWriter()
+        # if MPI.COMM_WORLD.Get_rank() == 0:
+        #     self.tb = SummaryWriter()
         # create A-C network
         self.actor_network = Actor(self.env_params)
         self.critic_network = Critic(self.env_params)
@@ -94,11 +95,11 @@ class DDPG_Agent:
                 # 3. update A-C (target) networks
                 self._update_network()
             # 2. evaluate result and save model
-            success_rate = self._eval_agent()
+            self.success_rate.append(self._eval_agent())
             if MPI.COMM_WORLD.Get_rank() == 0:
-                self.tb.add_scalar("Success Rate", success_rate, epoch)
-                print('[{}] epoch is: {}, eval success rate is: {:.3f}'.format(datetime.now(), epoch, success_rate))
-                torch.save([self.o_norm.mean, self.o_norm.std, self.g_norm.mean, self.g_norm.std, self.actor_network.state_dict()], self.model_path + '/model.pt')
+                # self.tb.add_scalar("Success Rate", success_rate, epoch)
+                print('[{}] epoch is: {}, eval success rate is: {:.3f}'.format(datetime.now(), epoch, self.success_rate[epoch]))
+                torch.save([self.success_rate, self.o_norm.mean, self.o_norm.std, self.g_norm.mean, self.g_norm.std, self.actor_network.state_dict()], self.model_path + '/model.pt')
 
     def _update_normalizer(self, cyc_obs, cyc_ag, cyc_g, cyc_actions):
         T = cyc_actions.shape[1]
