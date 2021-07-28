@@ -9,7 +9,8 @@ if __name__ == '__main__':
     args = get_args()
     # 1. load model
     model_path = args.save_dir + args.env_name + '/model.pt'
-    o_mean, o_std, g_mean, g_std, model = torch.load(model_path, map_location=lambda storage, loc: storage)
+    success_rate = [0]*50
+    success_rate, o_mean, o_std, g_mean, g_std, model = torch.load(model_path, map_location=lambda storage, loc: storage)
     # 2. make gym env
     env = gym.make(args.env_name)
     obs_out = env.reset()
