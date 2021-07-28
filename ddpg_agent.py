@@ -10,11 +10,15 @@ from normalizer import Normalizer
 
 from utils import get_env_paramters
 
+from torch.utils.tensorboard import SummaryWriter
+
 class DDPG_Agent:
     def __init__(self, args, env):
         self.args = args
         self.env = env
         self.env_params = get_env_paramters(env)
+        # tensorboard
+        self.tb = SummaryWriter()
         # create A-C network
         self.actor_network = Actor(self.env_params)
         self.critic_network = Critic(self.env_params)
@@ -84,6 +88,7 @@ class DDPG_Agent:
                 self._update_network()
             # 2. evaluate result and save model
             success_rate = self._eval_agent()
+            self.tb.add_scalar("Success Rate", success_rate, epoch)
             print('[{}] epoch is: {}, eval success rate is: {:.3f}'.format(datetime.now(), epoch, success_rate))
             torch.save([self.o_norm.mean, self.o_norm.std, self.g_norm.mean, self.g_norm.std, self.actor_network.state_dict()], self.model_path + '/model.pt')
 
@@ -177,4 +182,5 @@ class DDPG_Agent:
                 obs_out, _, _, info = self.env.step(actions)
                 obs, _, g = obs_out['observation'],obs_out['achieved_goal'],obs_out['desired_goal']
                 success_list.append(info['is_success'])
-        return sum(success_list)/len(success_list)
+        success_rate = sum(success_list)/len(success_list)
+        return success_rate
