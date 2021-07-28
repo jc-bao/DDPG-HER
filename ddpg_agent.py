@@ -3,7 +3,7 @@ import numpy as np
 import os
 from datetime import datetime
 
-from modules import Actor, Critic
+from models import Actor, Critic
 from replay_buffer import ReplayBuffer
 from her import HERSampler
 from normalizer import Normalizer

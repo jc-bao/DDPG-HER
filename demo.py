@@ -2,7 +2,7 @@ import torch
 import gym
 import numpy as np
 from utils import get_args
-from modules import Actor
+from models import Actor
 
 if __name__ == '__main__':
     args = get_args()
@@ -29,17 +29,15 @@ if __name__ == '__main__':
         for t in range(env._max_episode_steps):
             env.render()
             # clip
-            obs = np.clip(obs, -args.clip_obs, args.clip_obs)
-            g = np.clip(g, -args.clip_obs, args.clip_obs)
+            obs_clip = np.clip(obs, -args.clip_obs, args.clip_obs)
+            g_clip = np.clip(g, -args.clip_obs, args.clip_obs)
             # normalize
-            obs = np.clip((obs - o_mean) / (o_std), -args.clip_range, args.clip_range)
-            g = np.clip((g - g_mean) / (g_std), -args.clip_range, args.clip_range)
+            obs_norm = np.clip((obs_clip - o_mean) / (o_std), -args.clip_range, args.clip_range)
+            g_norm = np.clip((g_clip - g_mean) / (g_std), -args.clip_range, args.clip_range)
             # concatenate
-            inputs = torch.tensor(np.concatenate([obs, g]), dtype=torch.float32)
+            inputs = torch.tensor(np.concatenate([obs_norm, g_norm]), dtype=torch.float32)
             with torch.no_grad():
                 actions = actor_network(inputs).detach().cpu().numpy().squeeze()
             obs_out, _, _, info = env.step(actions)
             obs= obs_out['observation']
         print('the episode is: {}, is success: {}'.format(i, info['is_success']))
-
-    
