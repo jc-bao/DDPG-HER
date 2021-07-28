@@ -27,3 +27,10 @@ python demo.py --env-name 'XarmFetch-v0'
 | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
 | ![reach-mujoco](https://tva1.sinaimg.cn/large/008i3skNly1gswqpam9pmg30bw0bwb2d.gif) |      | ![PickAndPlace-bullet](https://tva1.sinaimg.cn/large/008i3skNly1gswrjjh0frg30bw0bwu13.gif) |
 
+## Training Result
+
+| FetchReach-v1                                                |      | XarmPickAndPlace-v0(PyBullet) |
+| ------------------------------------------------------------ | ---- | ----------------------------- |
+| ![Success Rate (2)](../../../../../Downloads/Success%20Rate%20(2).svg) |      |                               |
+
+## 

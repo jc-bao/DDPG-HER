@@ -2,6 +2,8 @@ import torch
 import numpy as np
 import os
 from datetime import datetime
+from mpi4py import mpi4py
+from mpi_utils.mpi_utils import sync_networks, sync_grads
 
 from models import Actor, Critic
 from replay_buffer import ReplayBuffer
@@ -38,11 +40,13 @@ class DDPG_Agent:
         self.o_norm = Normalizer(size = self.env_params['obs'], default_clip_range=self.args.clip_range)
         self.g_norm = Normalizer(size = self.env_params['goal'], default_clip_range=self.args.clip_range)
         # create dict for store
-        if not os.path.exists(self.args.save_dir):
-            os.mkdir(self.args.save_dir)
-        self.model_path = os.path.join(self.args.save_dir, self.args.env_name)
-        if not os.path.exists(self.model_path):
-            os.mkdir(self.model_path)
+        if MPI.COMM_WORLD.Get_rank() == 0:
+            if not os.path.exists(self.args.save_dir):
+                os.mkdir(self.args.save_dir)
+            # path to save the model
+            self.model_path = os.path.join(self.args.save_dir, self.args.env_name)
+            if not os.path.exists(self.model_path):
+                os.mkdir(self.model_path)
 
     def learn(self):
         '''
@@ -88,9 +92,10 @@ class DDPG_Agent:
                 self._update_network()
             # 2. evaluate result and save model
             success_rate = self._eval_agent()
-            self.tb.add_scalar("Success Rate", success_rate, epoch)
-            print('[{}] epoch is: {}, eval success rate is: {:.3f}'.format(datetime.now(), epoch, success_rate))
-            torch.save([self.o_norm.mean, self.o_norm.std, self.g_norm.mean, self.g_norm.std, self.actor_network.state_dict()], self.model_path + '/model.pt')
+            if MPI.COMM_WORLD.Get_rank() == 0:
+                self.tb.add_scalar("Success Rate", success_rate, epoch)
+                print('[{}] epoch is: {}, eval success rate is: {:.3f}'.format(datetime.now(), epoch, success_rate))
+                torch.save([self.o_norm.mean, self.o_norm.std, self.g_norm.mean, self.g_norm.std, self.actor_network.state_dict()], self.model_path + '/model.pt')
 
     def _update_normalizer(self, cyc_obs, cyc_ag, cyc_g, cyc_actions):
         T = cyc_actions.shape[1]
@@ -183,4 +188,5 @@ class DDPG_Agent:
                 obs, _, g = obs_out['observation'],obs_out['achieved_goal'],obs_out['desired_goal']
                 success_list.append(info['is_success'])
         success_rate = sum(success_list)/len(success_list)
-        return success_rate
+        global_success_rate = MPI.COMM_WORLD.allreduce(success_rate, op=MPI.SUM)
+        return global_success_rate
