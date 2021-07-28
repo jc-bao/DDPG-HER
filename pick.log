@@ -1,0 +1,53 @@
+pybullet build time: Jul 23 2021 18:30:27
+pybullet build time: Jul 23 2021 18:30:27
+pybullet build time: Jul 23 2021 18:30:27
+pybullet build time: Jul 23 2021 18:30:27
+/Users/reedpan/opt/anaconda3/envs/spinningup/lib/python3.6/site-packages/gym/logger.py:30: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  warnings.warn(colorize('%s: %s'%('WARN', msg % args), 'yellow'))
+/Users/reedpan/opt/anaconda3/envs/spinningup/lib/python3.6/site-packages/gym/logger.py:30: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  warnings.warn(colorize('%s: %s'%('WARN', msg % args), 'yellow'))
+/Users/reedpan/opt/anaconda3/envs/spinningup/lib/python3.6/site-packages/gym/logger.py:30: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  warnings.warn(colorize('%s: %s'%('WARN', msg % args), 'yellow'))
+/Users/reedpan/opt/anaconda3/envs/spinningup/lib/python3.6/site-packages/gym/logger.py:30: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  warnings.warn(colorize('%s: %s'%('WARN', msg % args), 'yellow'))
+b3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+No inertial data for link, using mass=1, localinertiadiagonal = 1,1,1, identity local inertial frameb3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+link_eefb3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+No inertial data for link, using mass=1, localinertiadiagonal = 1,1,1, identity local inertial frameb3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+link_eefb3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+No inertial data for link, using mass=1, localinertiadiagonal = 1,1,1, identity local inertial frameb3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+link_eefb3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+No inertial data for link, using mass=1, localinertiadiagonal = 1,1,1, identity local inertial frameb3Warning[examples/Importers/ImportURDFDemo/BulletUrdfImporter.cpp,126]:
+link_eefb3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,182]:
+not found [/Users/reedpan/Seafile/ReedPan/Learning/PyBullet/gym-xarm/gym_xarm/envs/urdf/meshes/checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,174]:
+Unsupported texture image format [./checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,182]:
+not found [/Users/reedpan/Seafile/ReedPan/Learning/PyBullet/gym-xarm/gym_xarm/envs/urdf/meshes/checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,174]:
+Unsupported texture image format [./checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,182]:
+not found [/Users/reedpan/Seafile/ReedPan/Learning/PyBullet/gym-xarm/gym_xarm/envs/urdf/meshes/checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,174]:
+Unsupported texture image format [./checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,182]:
+not found [/Users/reedpan/Seafile/ReedPan/Learning/PyBullet/gym-xarm/gym_xarm/envs/urdf/meshes/checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,174]:
+Unsupported texture image format [./checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,182]:
+not found [/Users/reedpan/Seafile/ReedPan/Learning/PyBullet/gym-xarm/gym_xarm/envs/urdf/meshes/checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,182]:
+not found [/Users/reedpan/Seafile/ReedPan/Learning/PyBullet/gym-xarm/gym_xarm/envs/urdf/meshes/checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,174]:
+Unsupported texture image format [./checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,174]:
+Unsupported texture image format [./checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,182]:
+not found [/Users/reedpan/Seafile/ReedPan/Learning/PyBullet/gym-xarm/gym_xarm/envs/urdf/meshes/checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,174]:
+Unsupported texture image format [./checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,182]:
+not found [/Users/reedpan/Seafile/ReedPan/Learning/PyBullet/gym-xarm/gym_xarm/envs/urdf/meshes/checker_huge.gif]
+b3Warning[examples/Importers/ImportMeshUtility/b3ImportMeshUtility.cpp,174]:
+Unsupported texture image format [./checker_huge.gif]
+[2021-07-28 22:32:52.469484] epoch is: 0, eval success rate is: 0.000

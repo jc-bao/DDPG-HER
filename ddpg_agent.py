@@ -20,7 +20,8 @@ class DDPG_Agent:
         self.env = env
         self.env_params = get_env_paramters(env)
         # tensorboard
-        self.tb = SummaryWriter()
+        if MPI.COMM_WORLD.Get_rank() == 0:
+            self.tb = SummaryWriter()
         # create A-C network
         self.actor_network = Actor(self.env_params)
         self.critic_network = Critic(self.env_params)

@@ -14,6 +14,9 @@ This is a pytorch implementation of Deep Deterministic Policy Gradient and Hinds
 ```python
 python train.py --env-name='XarmFetch-v0' --n-epochs 100 --n-cycles 500
 ```
+```python
+mpirun -np 16 python -u train.py --env-name='XarmPDFetch-v0' 2>&1 | tee pick.log
+```
 
 ### Show Demo
 
