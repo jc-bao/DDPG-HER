@@ -7,7 +7,7 @@ class Normalizer:
         self.eps = eps # minimum of std
         self.default_clip_range = default_clip_range
         # local param
-        self.count = 0
+        self.count = np.zeros(1, np.float32)
         self.sum = np.zeros(size, np.float32)
         self.sumsq = np.zeros(size, np.float32)
         # global param
