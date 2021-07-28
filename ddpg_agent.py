@@ -3,7 +3,7 @@ import numpy as np
 import os
 from datetime import datetime
 import mpi4py as MPI
-from mpi_utils.mpi_utils import sync_networks, sync_grads
+from utils import sync_networks, sync_grads
 
 from models import Actor, Critic
 from replay_buffer import ReplayBuffer
@@ -24,6 +24,8 @@ class DDPG_Agent:
         # create A-C network
         self.actor_network = Actor(self.env_params)
         self.critic_network = Critic(self.env_params)
+        sync_networks(self.actor_network)
+        sync_networks(self.critic_network)
         # target network
         self.actor_target_network = Actor(self.env_params)
         self.critic_target_network = Critic(self.env_params)
@@ -162,9 +164,11 @@ class DDPG_Agent:
             # 5. update A-C network
             self.actor_optim.zero_grad()
             actor_loss.backward()
+            sync_grads(self.actor_network)
             self.actor_optim.step()
             self.critic_optim.zero_grad()
             critic_loss.backward()
+            sync_grads(self.critic_network)
             self.critic_optim.step()
             # 6. update target network
             self._update_target_network(self.actor_target_network, self.actor_network)
