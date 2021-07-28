@@ -1,5 +1,5 @@
 import argparse
-import mpi4py as MPI
+from mpi4py import MPI
 import torch
 import numpy as np
 
@@ -50,10 +50,6 @@ def get_env_paramters(env):
 
 # sync_networks across the different cores
 def sync_networks(network):
-    """
-    netowrk is the network you want to sync
-
-    """
     comm = MPI.COMM_WORLD
     flat_params = _get_flat_params_or_grads(network, mode='params')
     comm.Bcast(flat_params, root=0)

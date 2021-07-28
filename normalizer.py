@@ -1,5 +1,5 @@
 import numpy as np
-import mpi4py as MPI
+from mpi4py import MPI
 import threading
 class Normalizer:
     def __init__(self, size, eps=1e-2, default_clip_range=np.inf):

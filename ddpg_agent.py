@@ -2,7 +2,7 @@ import torch
 import numpy as np
 import os
 from datetime import datetime
-import mpi4py as MPI
+from mpi4py import MPI
 from utils import sync_networks, sync_grads
 
 from models import Actor, Critic
