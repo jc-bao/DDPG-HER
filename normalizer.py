@@ -42,8 +42,8 @@ class Normalizer:
         self.total_sumsq += sync_sumsq
         self.total_count += sync_count
         # mean and std update
-        self.mean = self.sum/self.count
-        std = (self.sumsq / self.count) - np.square(self.sum / self.count)
+        self.mean = self.total_sum / self.total_count
+        std = (self.total_sumsq / self.total_count) - np.square(self.total_sum / self.total_count)
         self.std = np.sqrt(np.maximum(np.square(self.eps), std))
 
     def _sync(self, summ, sumsq, count):
