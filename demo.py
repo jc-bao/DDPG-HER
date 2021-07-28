@@ -3,6 +3,7 @@ import gym
 import numpy as np
 from utils import get_args
 from models import Actor
+import gym_xarm
 
 if __name__ == '__main__':
     args = get_args()

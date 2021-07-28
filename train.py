@@ -18,5 +18,3 @@ if __name__ == '__main__':
     env.seed(args.seed)
     ddpg_trainer = DDPG_Agent(args, env)
     ddpg_trainer.learn()
-
-
