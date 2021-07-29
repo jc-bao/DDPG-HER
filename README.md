@@ -39,7 +39,7 @@ python demo.py --env-name 'XarmPDFetch-v0'
 
 ## Training Result
 
-| XarmReach-v0(PyBullet)                                       | XarmPickAndPlace-v0(PyBullet)                                | XarmPickAndPlace-v0(PyBullet)                                |
+| XarmReach-v0(PyBullet)                                       | XarmPickAndPlace-v0(PyBullet)                                | XarmPDPickAndPlace-v0(PyBullet)                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![image-20210729083753727](https://tva1.sinaimg.cn/large/008i3skNgy1gsxiuqp1nvj30d907smx4.jpg) | ![image-20210729083658506](https://tva1.sinaimg.cn/large/008i3skNgy1gsxitsp03lj30db07umxc.jpg) | ![image-20210729084952181](https://tva1.sinaimg.cn/large/008i3skNgy1gsxj77ii08j30ep092jrn.jpg) |
 
