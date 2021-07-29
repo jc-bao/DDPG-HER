@@ -1,6 +1,0 @@
-objc[19710]: Class GLFWApplicationDelegate is implemented in both /Users/reedpan/.mujoco/mjpro150/bin/libglfw.3.dylib (0x122809778) and /usr/local/Cellar/glfw/3.3.4/lib/libglfw.3.3.dylib (0x1228bdb28). One of the two will be used. Which one is undefined.
-objc[19710]: Class GLFWWindowDelegate is implemented in both /Users/reedpan/.mujoco/mjpro150/bin/libglfw.3.dylib (0x122809700) and /usr/local/Cellar/glfw/3.3.4/lib/libglfw.3.3.dylib (0x1228bdb50). One of the two will be used. Which one is undefined.
-objc[19710]: Class GLFWContentView is implemented in both /Users/reedpan/.mujoco/mjpro150/bin/libglfw.3.dylib (0x1228097a0) and /usr/local/Cellar/glfw/3.3.4/lib/libglfw.3.3.dylib (0x1228bdba0). One of the two will be used. Which one is undefined.
-objc[19710]: Class GLFWWindow is implemented in both /Users/reedpan/.mujoco/mjpro150/bin/libglfw.3.dylib (0x122809818) and /usr/local/Cellar/glfw/3.3.4/lib/libglfw.3.3.dylib (0x1228bdc18). One of the two will be used. Which one is undefined.
-[2021-07-28 22:30:12.251171] epoch is: 0, eval success rate is: 0.958
-[2021-07-28 22:30:22.256603] epoch is: 1, eval success rate is: 0.950
