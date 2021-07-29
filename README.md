@@ -11,29 +11,35 @@ This is a pytorch implementation of Deep Deterministic Policy Gradient and Hinds
 
 ### Train
 
+Ordinary Training
+
 ```python
 python train.py --env-name='XarmFetch-v0' --n-epochs 100 --n-cycles 500
 ```
+
+Use MPI
+
 ```python
+mpirun -np 32 python -u train.py --env-name='XarmReach-v0' --n-epochs 10
 mpirun -np 32 python -u train.py --env-name='XarmPDFetch-v0' 2>&1 | tee pick.log
 ```
 
 ### Show Demo
 
 ```python
-python demo.py --env-name 'XarmFetch-v0'
+python demo.py --env-name 'XarmPDFetch-v0'
 ```
 
 ## Demo
 
-| FetchReach-v1                                                |      | XarmPickAndPlace-v0(PyBullet)                                |
-| ------------------------------------------------------------ | ---- | ------------------------------------------------------------ |
-| ![reach-mujoco](https://tva1.sinaimg.cn/large/008i3skNly1gswqpam9pmg30bw0bwb2d.gif) |      | ![PickAndPlace-bullet](https://tva1.sinaimg.cn/large/008i3skNly1gswrjjh0frg30bw0bwu13.gif) |
+| FetchReach-v1(PyBullet)                | XarmPickAndPlace-v0(PyBullet)                                | XarmPDPickAndPlace-v0(PyBullet)                              |
+| -------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![(good)reach](../pic/(good)reach.gif) | ![Large GIF (428x428)](https://tva1.sinaimg.cn/large/008i3skNgy1gsxiqze626g30bw0bw1l5.gif) | ![Large GIF (428x428)](https://tva1.sinaimg.cn/large/008i3skNgy1gsxim2p5ltg30bw0bwb2l.gif) |
+| the number of epochs = 10              | the number of epochs = 50                                    | the number of epochs = 50                                    |
 
 ## Training Result
 
-| FetchReach-v1                                                |      | XarmPickAndPlace-v0(PyBullet) |
-| ------------------------------------------------------------ | ---- | ----------------------------- |
-| ![Success Rate (2)](../../../../../Downloads/Success%20Rate%20(2).svg) |      |                               |
+| XarmReach-v0(PyBullet)                                       | XarmPickAndPlace-v0(PyBullet)                                | XarmPickAndPlace-v0(PyBullet)                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![image-20210729083753727](https://tva1.sinaimg.cn/large/008i3skNgy1gsxiuqp1nvj30d907smx4.jpg) | ![image-20210729083658506](https://tva1.sinaimg.cn/large/008i3skNgy1gsxitsp03lj30db07umxc.jpg) | ![image-20210729084952181](https://tva1.sinaimg.cn/large/008i3skNgy1gsxj77ii08j30ep092jrn.jpg) |
 
-## 

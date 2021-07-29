@@ -194,5 +194,5 @@ class DDPG_Agent:
                 obs, _, g = obs_out['observation'],obs_out['achieved_goal'],obs_out['desired_goal']
                 success_list.append(info['is_success'])
         success_rate = sum(success_list)/len(success_list)
-        global_success_rate = MPI.COMM_WORLD.allreduce(success_rate, op=MPI.SUM)
+        global_success_rate = MPI.COMM_WORLD.allreduce(success_rate, op=MPI.SUM)/ MPI.COMM_WORLD.Get_size()
         return global_success_rate

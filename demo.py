@@ -9,7 +9,6 @@ if __name__ == '__main__':
     args = get_args()
     # 1. load model
     model_path = args.save_dir + args.env_name + '/model.pt'
-    success_rate = [0]*50
     success_rate, o_mean, o_std, g_mean, g_std, model = torch.load(model_path, map_location=lambda storage, loc: storage)
     # 2. make gym env
     env = gym.make(args.env_name)
@@ -20,6 +19,8 @@ if __name__ == '__main__':
         'action': env.action_space.shape[0],
         'action_max': env.action_space.high[0],
     }
+    for i in success_rate:
+        print(i)
     # 3. make actor network
     actor_network = Actor(env_params)
     actor_network.load_state_dict(model)
