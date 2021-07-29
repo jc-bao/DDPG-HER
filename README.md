@@ -34,7 +34,7 @@ python demo.py --env-name 'XarmPDFetch-v0'
 
 | FetchReach-v1(PyBullet)                | XarmPickAndPlace-v0(PyBullet)                                | XarmPDPickAndPlace-v0(PyBullet)                              |
 | -------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![(good)reach](../pic/(good)reach.gif) | ![Large GIF (428x428)](https://tva1.sinaimg.cn/large/008i3skNgy1gsxiqze626g30bw0bw1l5.gif) | ![Large GIF (428x428)](https://tva1.sinaimg.cn/large/008i3skNgy1gsxim2p5ltg30bw0bwb2l.gif) |
+| ![(good)reach](../pic/(good)reach.gif) | ![Large GIF (320x320)](https://tva1.sinaimg.cn/large/008i3skNgy1gsxjlnnjudg308w08wu0x.gif) | ![Large GIF (428x428)](https://tva1.sinaimg.cn/large/008i3skNgy1gsxim2p5ltg30bw0bwb2l.gif) |
 | the number of epochs = 10              | the number of epochs = 50                                    | the number of epochs = 50                                    |
 
 ## Training Result
