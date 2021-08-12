@@ -22,6 +22,7 @@ Use MPI
 ```python
 mpirun -np 32 python -u train.py --env-name='XarmReach-v0' --n-epochs 10
 mpirun -np 32 python -u train.py --env-name='XarmPDFetch-v0' 2>&1 | tee pick.log
+mpirun -np 32 python -u train.py --env-name='XarmPDHandover-v0' --n-cycles 500
 ```
 
 ### Show Demo
